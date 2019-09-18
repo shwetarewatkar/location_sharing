@@ -2,24 +2,28 @@
 
 ## Root Access
 
-- Server : 34.93.36.156
+- Server : 34.217.248.47
 - User : root
-- Password : NiAB%2)+aj2%advf
+- Password : fb69BV%e3N&9Fq5$
+- 
+## Certificates 
+
+CertificateFile /etc/letsencrypt/live/ls.shwetarewatkar.com/fullchain.pem
+CertificateKeyFile /etc/letsencrypt/live/ls.shwetarewatkar.com/privkey.pem
 
 ## Admin Panel
 
-- Url : [location.artoon.in](#)
+- Url : [ls.shwetarewatkar.com/](#)
 
 ## MongoDB Config
 
-- IP : localhost
-- DB : locationsharing
-- User : locationsharing
-- Password : mYvb73VAcnyYTe
+--atlas mongodb+srv://user:bk6NJL1Z2v2IsmQ8@cluster0-nmkja.mongodb.net/test?retryWrites=true&w=majority
 
 ##Initiating Server
 
 ```
-- node app.js //Socket Server
+- forever app.js //Socket Server
 - Dedicated Ports : 3000 and 3001
+- socket server 3001
+- http server 3000
 ```
