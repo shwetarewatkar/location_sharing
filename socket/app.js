@@ -10,7 +10,8 @@ const DBhost = process.env.DBhost;
 const DBname = process.env.DBname;
 const DBuser = process.env.DBuser;
 const DBpass = process.env.DBpass;
-const MongoUrl = `mongodb://${DBuser}:${DBpass}@${DBhost}:${DBport}/${DBname}`;
+// const MongoUrl = `mongodb://${DBuser}:${DBpass}@${DBhost}:${DBport}/${DBname}`;
+const MongoUrl= "mongodb+srv://user:bk6NJL1Z2v2IsmQ8@cluster0-nmkja.mongodb.net/test?retryWrites=true&w=majority"
 /* ----------------- .env Ends ---------------------*/
 
 /* ---------------- Mongo Connection -------------------*/
@@ -33,8 +34,10 @@ common = module.exports = require("./common/mongoOp");
 
 /* ---------------- SSL Certificate Files  -------------------*/
 let options = {
-  key: fs.readFileSync("./certificate/ca.pem", "utf8"),
-  cert: fs.readFileSync("./certificate/ca.crt", "utf8")
+  // key: fs.readFileSync("./certificate/ca.pem", "utf8"),
+  key: fs.readFileSync("/etc/letsencrypt/live/ls.shwetarewatkar.com/privkey.pem", "utf8"),
+  cert: fs.readFileSync("/etc/letsencrypt/live/ls.shwetarewatkar.com/fullchain.pem", "utf8")
+  // cert: fs.readFileSync("./certificate/ca.crt", "utf8")
 };
 /* ---------------- SSL Certificate Files Ends  -------------------*/
 
