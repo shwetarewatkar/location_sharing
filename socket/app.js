@@ -1,4 +1,4 @@
-const mongo = require("mongodb").MongoClient;
+const MongoClient = require("mongodb").MongoClient;
 const https = require("https");
 const fs = require("fs");
 require("dotenv").config();
@@ -12,12 +12,13 @@ const DBuser = process.env.DBuser;
 const DBpass = process.env.DBpass;
 // const MongoUrl = `mongodb://${DBuser}:${DBpass}@${DBhost}:${DBport}/${DBname}`;
 const MongoUrl= "mongodb+srv://user:bk6NJL1Z2v2IsmQ8@cluster0-nmkja.mongodb.net/test?retryWrites=true&w=majority"
+const AtlasClient= new MongoClient(MongoUrl, { useNewUrlParser: true, useUnifiedTopology: true });
 /* ----------------- .env Ends ---------------------*/
 
 /* ---------------- Mongo Connection -------------------*/
-mongo.connect(
-  MongoUrl,
-  { useNewUrlParser: true, useUnifiedTopology: true },
+AtlasClient.connect(
+  // MongoUrl,
+  // { useNewUrlParser: true, useUnifiedTopology: true },
   (err, client) => {
     if (err) throw err;
     db = module.exports = client.db(DBname);
