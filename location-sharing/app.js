@@ -30,8 +30,8 @@ app.use(function (req, res, next) {
 });
 
 const options = {
-    key: fs.readFileSync(__dirname + '/cert/key.pem'),
-    cert: fs.readFileSync(__dirname + '/cert/cert.pem')
+    key: fs.readFileSync("/etc/letsencrypt/live/ls.shwetarewatkar.com/privkey.pem"),
+    cert: fs.readFileSync("/etc/letsencrypt/live/ls.shwetarewatkar.com/fullchain.pem")
 };
 
 app.use('/npm', express.static(__dirname + '/node_modules'));
