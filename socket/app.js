@@ -193,7 +193,7 @@ io.sockets.on("connection", socket => {
             if (e)
               console.log("Error in find location query before insert ", e);
             else {
-              console.log("\nUpdateLocation CheckUserExsists ---------");
+              // console.log("\nUpdateLocation CheckUserExsists ---------");
               // ,checkExistance
               if (checkExistance.length == 0) {
                 db.collection("user_location").insertOne(
@@ -208,9 +208,9 @@ io.sockets.on("connection", socket => {
                       console.log("UpdateLocation error in insertation ", er);
                     else {
                       if (inserted.ops[0]) {
-                        console.log(
-                          "UpdateLocation data is inserted successfully"
-                        );
+                        // console.log(
+                          // "UpdateLocation data is inserted successfully"
+                        // );
                       }
                     }
                   }
@@ -221,10 +221,10 @@ io.sockets.on("connection", socket => {
 
         break;
       case "userDetails":
-        console.log("\ninside the case userDetails ");
+        // console.log("\ninside the case userDetails ");
         // , data
         if (data.data.uid) {
-          console.log("uid is define ", data.data.uid);
+          // console.log("uid is define ", data.data.uid);
           db.collection("user_location")
             .find({ uid: data.data.uid.toString() })
             .sort({ cd: -1 })
@@ -233,7 +233,7 @@ io.sockets.on("connection", socket => {
               if (error)
                 console.log("user_location history   details error ", error);
               else {
-                console.log("\nfound data ");
+                // console.log("\nfound data ");
                 // , location_details
                 if (location_details.length > 0) {
                   socket.emit("res", {
@@ -244,7 +244,7 @@ io.sockets.on("connection", socket => {
               }
             });
         } else {
-          console.log("uid is not define");
+          // console.log("uid is not define");
         }
         break;
       case "RemovePeople":
@@ -292,10 +292,10 @@ io.sockets.on("connection", socket => {
       case "AddToDefult":
         UserLogin.AddToDefault(socket, value, Added => {
           if (Added) {
-            console.log(
-              "*********************** response sent add to efault ****************************t"
-            );
-            console.log(Added);
+            // console.log(
+            //   "*********************** response sent add to efault ****************************t"
+            // );
+            // console.log(Added);
 
             socket.emit("res", {
               event: "AddDefaultMemebrResp",
@@ -315,12 +315,12 @@ io.sockets.on("connection", socket => {
         break;
       case "LogoutEvent":
         // console.log("user id", data);
-        console.log("socket uid", value.uid);
-        console.log("socket id", socket.id);
+        // console.log("socket uid", value.uid);
+        // console.log("socket id", socket.id);
 
         // if (value.id == socket.id) {
         common.SocketDisconnect(socket.id, value.uid, data => {
-          console.log("Socket Id Deleted");
+          // console.log("Socket Id Deleted");
           socket.disconnect();
           delete socket.uid;
         });
@@ -330,11 +330,11 @@ io.sockets.on("connection", socket => {
   });
 
   socket.on("disconnect", res => {
-    console.log("------------------------ reason -----------------------");
+    // console.log("------------------------ reason -----------------------");
     // console.log(res);
 
     common.SocketDisconnect_err(socket.id, data => {
-      console.log(`Scoket Id deleted due to ${res}`);
+      // console.log(`Scoket Id deleted due to ${res}`);
       delete socket.uid;
     });
   });
