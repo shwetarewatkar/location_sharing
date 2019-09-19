@@ -1,4 +1,4 @@
-var mongoUrl = "mongodb+srv://user:bk6NJL1Z2v2IsmQ8@cluster0-nmkja.mongodb.net/locationsharing?retryWrites=true&w=majority";
+var mongoUrl = "mongodb+srv://user:password1234@cluster0-nmkja.mongodb.net/locationsharing?retryWrites=true&w=majority";
 // var mongoUrl = "mongodb://locationsharing:mYvb73VAcnyYTe@localhost:27017/locationsharing";
 if (!mongoUrl) {
     console.log('PLease export mongoUrl');
