@@ -80,7 +80,7 @@ module.exports = {
       });
   },
   SocketDisconnect: (Socket_id, Socket_Uid, Cb) => {
-    console.log("Socket Disconnected", Socket_id);
+    // console.log("Socket Disconnected", Socket_id);
     // console.log(
     //   "%%%%%%%%%%%%%%%%%%%%%%%%%% trying to delete socket id  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%"
     // );
@@ -91,17 +91,17 @@ module.exports = {
       { $set: { socket_id: "" } },
       (err, DbResp) => {
         if (err) throw err;
-        console.log(DbResp);
+        // console.log(DbResp);
         Cb(DbResp);
       }
     );
   },
   SocketDisconnect_err: (Socket_id, Cb) => {
-    console.log("Socket Disconnected", Socket_id);
+    // console.log("Socket Disconnected", Socket_id);
     // console.log(
     //   "%%%%%%%%%%%%%%%%%%%%%%%%%% trying to delete socket id  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%"
     // );
-    console.log({ socket_id: Socket_id });
+    // console.log({ socket_id: Socket_id });
 
     db.collection("userdetails").findOneAndUpdate(
       { socket_id: Socket_id },

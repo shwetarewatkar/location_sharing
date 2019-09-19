@@ -36,7 +36,7 @@ module.exports = {
                 if (e)
                   console.log("Error in find location query before insert ", e);
                 else {
-                  console.log("\nCheckUserExsists ---------", checkExistance);
+                  // console.log("\nCheckUserExsists ---------", checkExistance);
                   if (checkExistance.length == 0) {
                     db.collection("user_location").insertOne(
                       {
@@ -49,7 +49,7 @@ module.exports = {
                         if (er) console.log("error in insertation ", er);
                         else {
                           if (inserted.ops[0]) {
-                            console.log("data is inserted successfully");
+                            // console.log("data is inserted successfully");
                           }
                         }
                       }
@@ -63,7 +63,7 @@ module.exports = {
           common.BroadcastMemberList(userId, UserList => {
             if (UserList != undefined && UserList != null) {
               for (let i = 0; i < UserList.length; i++) {
-                console.log("Location update sent", UserList[i]);
+                // console.log("Location update sent", UserList[i]);
                 socket.to(UserList[i]).emit("res", {
                   event: "UserLocationUpdate",
                   data: {
@@ -131,7 +131,7 @@ module.exports = {
             }
           );
         } else {
-          console.log("=> User Does Not exsists <=");
+          // console.log("=> User Does Not exsists <=");
         }
       });
     }
@@ -348,7 +348,7 @@ module.exports = {
     }
   },
   AddToDefault: (socket, UserInfo, Cb) => {
-    console.log("user infos", UserInfo);
+    // console.log("user infos", UserInfo);
 
     let uid = UserInfo.uid;
 
