@@ -11,7 +11,7 @@ const DBname = process.env.DBname;
 const DBuser = process.env.DBuser;
 const DBpass = process.env.DBpass;
 // const MongoUrl = `mongodb://${DBuser}:${DBpass}@${DBhost}:${DBport}/${DBname}`;
-const MongoUrl= "mongodb+srv://user:bk6NJL1Z2v2IsmQ8@cluster0-nmkja.mongodb.net/test?retryWrites=true&w=majority"
+const MongoUrl= `mongodb+srv://${DBuser}:${DBpass}@cluster0-nmkja.mongodb.net/test?retryWrites=true&w=majority`
 const AtlasClient= new MongoClient(MongoUrl, { useNewUrlParser: true, useUnifiedTopology: true });
 /* ----------------- .env Ends ---------------------*/
 
